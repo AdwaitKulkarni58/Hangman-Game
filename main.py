@@ -272,6 +272,18 @@ word_list = [
 'zodiac', 
 'zombie', 
 ]
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
+
+print(logo)
 
 chosen_word = word_list[random.randint(0, len(word_list) - 1)]
 
@@ -287,7 +299,7 @@ while True:
     break
   user_input = input("Guess a letter:")
   guess = user_input.lower()
-    
+  
   for position in range(len(chosen_word)):
     letter = chosen_word[position]
     if (letter == guess):
@@ -296,6 +308,7 @@ while True:
   print("".join(display))
   
   if guess not in display:
+    print("The letter " + guess + " is not in the word, you lose a life")
     lives = lives - 1
     if (lives == 0):
       print(stages[0])
